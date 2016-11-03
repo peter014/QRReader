@@ -8,7 +8,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.zxing.Result;
 
@@ -25,7 +24,7 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
     private static PrintWriter printWriter;
 
     private String message = "";
-    private static String ip = "10.151.21.249";
+    private static String ip = "192.168.0.11";
 
 
     @Override
@@ -94,7 +93,6 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
 
         @Override
         protected Void doInBackground(Void... params) {
-
             try {
                 s = new Socket(ip,5000);
                 printWriter = new PrintWriter(s.getOutputStream());
@@ -102,17 +100,9 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
                 printWriter.flush();
                 printWriter.close();
                 s.close();
-
-
             } catch (IOException e) {
-                Toast.makeText(getApplicationContext(),"Error en el envío",Toast.LENGTH_SHORT).show();
                 e.printStackTrace();
             }
-            catch (Exception ex){
-                ex.printStackTrace();
-                Toast.makeText(getApplicationContext(),"Error en el envío",Toast.LENGTH_SHORT).show();
-            }
-
             return null;
         }
     }
@@ -126,8 +116,8 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
         setContentView(R.layout.activity_main);
 
         TextView textView = (TextView) findViewById(R.id.result);
-        textView.setText("Cedula: "+result.getText());
         message  = result.getText();
+        textView.setText("Correo: "+message);
         sendMessage();
     }
 }

@@ -10,17 +10,18 @@
         android:layout_height="wrap_content"
         android:text="Scan Codigo QR "
         android:id="@+id/scan"
-        android:layout_alignParentTop="true"
+        android:onClick="onClickScan"
+        android:layout_below="@+id/imageView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:layout_marginTop="42dp"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:onClick="onClickScan" />
+        android:layout_alignParentEnd="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="hello"
+        android:text=" "
         android:id="@+id/result"
         android:layout_below="@+id/scan"
         android:layout_alignParentLeft="true"
@@ -29,4 +30,16 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:editable="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/logo"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
 </RelativeLayout>
